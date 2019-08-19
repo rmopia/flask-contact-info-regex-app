@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Results</h2>
+    <table>
+        <th>Phone Numbers</th>
+        {% for item in phone_nums %}
+            <tr>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
+        <th>Emails</th>
+        {% for item in emails %}
+            <tr>
+                <td>{{ item }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+    <a href="/">← Back</a>
+    <p></p>
+{% endblock %}
