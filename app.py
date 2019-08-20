@@ -1,13 +1,33 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mail import Message, Mail
+from forms import ContactForm
 import re
 
+mail = Mail()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '2090cdcebc9658f5eefd810a80096273'
+
+app.config['MAIL_SERVER'] = 'robert.mopia@gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'robert.mopia@gmail.com'
+app.config['MAIL_PASSWORD'] = ''
+
+mail.init_app(app)
 
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html', title='Contact')
+    form = ContactForm()
+    if request.method == 'POST':
+        message = Message(form.subject.data, sender='robert.mopia@gmail.com',
+                          recipients=['robert.mopia@gmail.com'])
+        message.body = ''
+        # mail.send(message)
+        flash('Thank you!')
+        return redirect(url_for('contact'))
+    elif request.method == 'GET':
+        return render_template('contact.html', title='Contact', form=form)
 
 
 @app.route('/about')
