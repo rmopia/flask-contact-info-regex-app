@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    {% with alerts = get_flashed_messages() %}
+        {% if alerts %}
+            {% for alert in alerts %}
+                <div class="alert alert-success" role="alert">
+                {{ alert }}
+                <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="container" id="contact_container">
+        <div class="row">
+            <div class="column">
+                <h2>Contact Us</h2>
+                <p>Something on your mind?</p>
+                <form action="{{url_for('contact')}}" method="POST">
+                    {{ form.full_name.label }}
+                    {{ form.full_name }}
+                    {{ form.email.label }}
+                    {{ form.email }}
+                    {{ form.subject.label }}
+                    {{ form.subject }}
+                    {{ form.message.label }}
+                    {{ form.message }}
+                    </br>
+                    <input type="submit" value="Send" class="btn btn-primary">
+                    <input type="reset" class="btn btn-info" value="Clear">
+                </form>
+            </div>
+            <div class="column">
+                <br><br><br><br><br>
+                <img src="static/thumbs_up_kid.gif">
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
