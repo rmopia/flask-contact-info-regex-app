@@ -1,11 +1,54 @@
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, p {
     font-family: Roboto, sans-serif;
 }
 
-body{
+body {
     font-family: Roboto, sans-serif;
 
     background-color: aliceblue;
 }
 
+table, th, td {
+    border: 1px solid black;
+    width: 35%;
+}
+
+img {
+    width: 110%;
+    display: table;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 1.1em;
+    display: table;
+    padding: 4px;
+    background-color: #99ceff;
+}
+
+form textarea {
+    width: 500px;
+    height: 120px;
+    padding: 10px;
+    display: table;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form input {
+    width: 200px;
+    padding: 5px;
+    display: table;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#contact_container {
+    background-color: #99ceff;
+    border-radius: 5px;
+    height: 500px;
+    width: 790px;
+}
